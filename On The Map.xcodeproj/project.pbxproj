@@ -8,20 +8,38 @@
 
 /* Begin PBXBuildFile section */
 		F72C6A052015B98400679575 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72C6A042015B98400679575 /* AppDelegate.swift */; };
-		F72C6A072015B98400679575 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72C6A062015B98400679575 /* ViewController.swift */; };
+		F72C6A072015B98400679575 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72C6A062015B98400679575 /* LoginViewController.swift */; };
 		F72C6A0A2015B98400679575 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F72C6A082015B98400679575 /* Main.storyboard */; };
 		F72C6A0C2015B98400679575 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F72C6A0B2015B98400679575 /* Assets.xcassets */; };
 		F72C6A0F2015B98400679575 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F72C6A0D2015B98400679575 /* LaunchScreen.storyboard */; };
+		F72C6A172015BCC300679575 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72C6A162015BCC300679575 /* Constants.swift */; };
+		F72C6A1F201C207200679575 /* GCDBlackBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72C6A1E201C207200679575 /* GCDBlackBox.swift */; };
+		F749EA982020E01B006A75DC /* MasterNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = F749EA972020E01B006A75DC /* MasterNetwork.swift */; };
+		F749EA9A2020E282006A75DC /* MasterConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = F749EA992020E282006A75DC /* MasterConvenience.swift */; };
+		F749EA9C2022385A006A75DC /* UsersData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F749EA9B2022385A006A75DC /* UsersData.swift */; };
+		F749EA9E20237E21006A75DC /* SearchLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F749EA9D20237E21006A75DC /* SearchLocationViewController.swift */; };
+		F749EAA0202401E2006A75DC /* AddedLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F749EA9F202401E2006A75DC /* AddedLocationViewController.swift */; };
+		F7B402E6201D01B800C015FD /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B402E5201D01B800C015FD /* MapViewController.swift */; };
+		F7B402EA201D0E5E00C015FD /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B402E9201D0E5E00C015FD /* TableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		F72C6A012015B98300679575 /* On The Map.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "On The Map.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F72C6A042015B98400679575 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F72C6A062015B98400679575 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F72C6A062015B98400679575 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		F72C6A092015B98400679575 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F72C6A0B2015B98400679575 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F72C6A0E2015B98400679575 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F72C6A102015B98400679575 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F72C6A162015BCC300679575 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		F72C6A1E201C207200679575 /* GCDBlackBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCDBlackBox.swift; sourceTree = "<group>"; };
+		F749EA972020E01B006A75DC /* MasterNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterNetwork.swift; sourceTree = "<group>"; };
+		F749EA992020E282006A75DC /* MasterConvenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterConvenience.swift; sourceTree = "<group>"; };
+		F749EA9B2022385A006A75DC /* UsersData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersData.swift; sourceTree = "<group>"; };
+		F749EA9D20237E21006A75DC /* SearchLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchLocationViewController.swift; sourceTree = "<group>"; };
+		F749EA9F202401E2006A75DC /* AddedLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddedLocationViewController.swift; sourceTree = "<group>"; };
+		F7B402E5201D01B800C015FD /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		F7B402E9201D0E5E00C015FD /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +72,39 @@
 		F72C6A032015B98300679575 /* On The Map */ = {
 			isa = PBXGroup;
 			children = (
+				F78843A3202A758400F3B4E1 /* Networking */,
 				F72C6A042015B98400679575 /* AppDelegate.swift */,
-				F72C6A062015B98400679575 /* ViewController.swift */,
+				F72C6A1E201C207200679575 /* GCDBlackBox.swift */,
+				F72C6A162015BCC300679575 /* Constants.swift */,
+				F7B402E7201D0CCD00C015FD /* Controller */,
 				F72C6A082015B98400679575 /* Main.storyboard */,
 				F72C6A0B2015B98400679575 /* Assets.xcassets */,
 				F72C6A0D2015B98400679575 /* LaunchScreen.storyboard */,
 				F72C6A102015B98400679575 /* Info.plist */,
 			);
 			path = "On The Map";
+			sourceTree = "<group>";
+		};
+		F78843A3202A758400F3B4E1 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				F749EA9B2022385A006A75DC /* UsersData.swift */,
+				F749EA992020E282006A75DC /* MasterConvenience.swift */,
+				F749EA972020E01B006A75DC /* MasterNetwork.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		F7B402E7201D0CCD00C015FD /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F72C6A062015B98400679575 /* LoginViewController.swift */,
+				F7B402E9201D0E5E00C015FD /* TableViewController.swift */,
+				F7B402E5201D01B800C015FD /* MapViewController.swift */,
+				F749EA9F202401E2006A75DC /* AddedLocationViewController.swift */,
+				F749EA9D20237E21006A75DC /* SearchLocationViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,8 +179,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F72C6A072015B98400679575 /* ViewController.swift in Sources */,
+				F72C6A072015B98400679575 /* LoginViewController.swift in Sources */,
 				F72C6A052015B98400679575 /* AppDelegate.swift in Sources */,
+				F7B402EA201D0E5E00C015FD /* TableViewController.swift in Sources */,
+				F72C6A172015BCC300679575 /* Constants.swift in Sources */,
+				F749EAA0202401E2006A75DC /* AddedLocationViewController.swift in Sources */,
+				F749EA982020E01B006A75DC /* MasterNetwork.swift in Sources */,
+				F72C6A1F201C207200679575 /* GCDBlackBox.swift in Sources */,
+				F749EA9A2020E282006A75DC /* MasterConvenience.swift in Sources */,
+				F749EA9C2022385A006A75DC /* UsersData.swift in Sources */,
+				F749EA9E20237E21006A75DC /* SearchLocationViewController.swift in Sources */,
+				F7B402E6201D01B800C015FD /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,6 +327,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = L3WCZURK57;
 				INFOPLIST_FILE = "On The Map/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Udacity.On-The-Map";
@@ -289,6 +342,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = L3WCZURK57;
 				INFOPLIST_FILE = "On The Map/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Udacity.On-The-Map";
