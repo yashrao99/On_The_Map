@@ -13,15 +13,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate, UITextViewDele
 
     var keyboardOnScreen = false
     var appDelegate: AppDelegate!
-    
-    
+    var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
+
     @IBOutlet weak var logoImageView: UIImageView!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var loginTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var detailTextView: UITextView!
     @IBOutlet weak var linkToUdacity: UIButton!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,38 +48,55 @@ class LoginViewController: UIViewController, UITextFieldDelegate, UITextViewDele
         }
     }
     
-    
+
     func loginWithUdacity() {
-        MasterNetwork.sharedInstance().loginToUdacity(username: loginTextField.text!, password: passwordTextField.text!) {success, errorString, error in
-            if success {
-                MasterNetwork.sharedInstance().getUserData(userID: self.appDelegate.userID!) {success, error in
-                    performUIUpdatesOnMain {
-                        if success {
-                            MasterNetwork.sharedInstance().getSingleUser(uniqueKey: self.appDelegate.userID!) { (success, error) in
-                                performUIUpdatesOnMain {
-                                    if success {
-                                        self.performSegue(withIdentifier: "loginToMap", sender: nil)
-                                    } else {
-                                        MasterNetwork.sharedInstance().alertError(self, error: self.appDelegate.errorMessages.LoginSelfError)
+        
+        activityIndicator.center = self.view.center
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
+        view.addSubview(activityIndicator)
+        activityIndicator.startAnimating()
+        
+        if MasterNetwork.sharedInstance().isInternetAvailable() {
+            MasterNetwork.sharedInstance().loginToUdacity(username: loginTextField.text!, password: passwordTextField.text!) {success, errorString, error in
+                if success {
+                    MasterNetwork.sharedInstance().getUserData(userID: self.appDelegate.userID!) {success, error in
+                        performUIUpdatesOnMain {
+                            if success {
+                                MasterNetwork.sharedInstance().getSingleUser(uniqueKey: self.appDelegate.userID!) { (success, error) in
+                                    performUIUpdatesOnMain {
+                                        if success {
+                                            self.activityIndicator.stopAnimating()
+                                            self.performSegue(withIdentifier: "loginToMap", sender: nil)
+                                        } else {
+                                            self.activityIndicator.stopAnimating()
+                                            MasterNetwork.sharedInstance().alertError(self, error: self.appDelegate.errorMessages.LoginSelfError)
+                                        }
                                     }
                                 }
-                            }
-                        } else {
-                            performUIUpdatesOnMain {
-                                MasterNetwork.sharedInstance().alertError(self, error: self.appDelegate.errorMessages.CallDataError)
+                            } else {
+                                performUIUpdatesOnMain {
+                                    self.activityIndicator.stopAnimating()
+                                    MasterNetwork.sharedInstance().alertError(self, error: self.appDelegate.errorMessages.CallDataError)
+                                }
                             }
                         }
                     }
-                }
-            } else {
-                performUIUpdatesOnMain {
-                    MasterNetwork.sharedInstance().alertError(self, error: self.appDelegate.errorMessages.LoginCredentialsError)
+                } else {
+                    performUIUpdatesOnMain {
+                        self.activityIndicator.stopAnimating()
+                        MasterNetwork.sharedInstance().alertError(self, error: self.appDelegate.errorMessages.LoginCredentialsError)
+                    }
                 }
             }
+            
+        } else {
+            self.activityIndicator.stopAnimating()
+            MasterNetwork.sharedInstance().alertError(self, error: self.appDelegate.errorMessages.connectionError)
         }
+
     }
 
-    
     @IBAction func loginPressed(_ sender: Any) {
         loginWithUdacity()
     }

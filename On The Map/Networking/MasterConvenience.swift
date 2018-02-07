@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-
+import SystemConfiguration
 
 
 struct ErrorMessages {
@@ -22,8 +22,9 @@ struct ErrorMessages {
     let webError = "Invalid website request"
     let emptyURL = "Please provide a URL"
     let httpURL = "Please ensure that the URL begins with http:// or https://"
-    let locationError = "Pleae enter a valid location"
+    let locationError = "Geocode Error, Please try again"
     let postError = "Unable to post a pin for new/existing user!"
+    let connectionError = "Please check your network connection!"
     
 }
 
@@ -35,20 +36,31 @@ extension MasterNetwork {
         controller.present(alertView, animated: true, completion: nil)
     }
     
+    //Check internet connection code - Thanks to StackOverflow! (https://stackoverflow.com/questions/39558868/check-internet-connection-ios-10)
     
-    func segueToSearchVC(_ controller: UIViewController) {
-        let searchLocationVC = controller.storyboard?.instantiateViewController(withIdentifier: "searchLocationVC")
-        controller.present(searchLocationVC!, animated: true, completion: nil)
+    func isInternetAvailable() -> Bool
+    {
+        var zeroAddress = sockaddr_in()
+        zeroAddress.sin_len = UInt8(MemoryLayout.size(ofValue: zeroAddress))
+        zeroAddress.sin_family = sa_family_t(AF_INET)
+        
+        let defaultRouteReachability = withUnsafePointer(to: &zeroAddress) {
+            $0.withMemoryRebound(to: sockaddr.self, capacity: 1) {zeroSockAddress in
+                SCNetworkReachabilityCreateWithAddress(nil, zeroSockAddress)
+            }
+        }
+        
+        var flags = SCNetworkReachabilityFlags()
+        if !SCNetworkReachabilityGetFlags(defaultRouteReachability!, &flags) {
+            return false
+        }
+        let isReachable = flags.contains(.reachable)
+        let needsConnection = flags.contains(.connectionRequired)
+        return (isReachable && !needsConnection)
     }
-    
-    func segueToTabVC(_ controller: UIViewController) {
-        let tabBarVC = controller.storyboard?.instantiateViewController(withIdentifier: "tabBarVC")
-        controller.present(tabBarVC!, animated: true, completion: nil)
-    }
-    
-    func segueToLoginVC(_ controller: UIViewController) {
-        let loginVC = controller.storyboard?.instantiateViewController(withIdentifier: "loginVC")
-        controller.present(loginVC!, animated: true, completion: nil)
-    }
+
 }
+
+
+
 

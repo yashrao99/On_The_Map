@@ -15,11 +15,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @IBOutlet weak var tableView: UITableView!
     
     var appDelegate = UIApplication.shared.delegate as! AppDelegate
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
+        
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         loadTableView()
@@ -27,11 +23,11 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     @IBAction func logoutPressed(_ sender: Any) {
         MasterNetwork.sharedInstance().logoutSession(controller: self)
-        MasterNetwork.sharedInstance().segueToLoginVC(self)
+        self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func segueTosearchVC(_ sender: Any) {
-        MasterNetwork.sharedInstance().segueToSearchVC(self)
+        self.performSegue(withIdentifier: "toLocation", sender: nil)
     }
     
     @IBAction func refreshButton(_ sender: Any) {

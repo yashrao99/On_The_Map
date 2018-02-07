@@ -57,6 +57,7 @@ class searchLocationVC: UIViewController, UITextFieldDelegate {
         view.addSubview(activityIndicator)
         activityIndicator.startAnimating()
         
+        
         guard (mediaURL != "") else {
             MasterNetwork.sharedInstance().alertError(self, error: self.appDelegate.errorMessages.emptyURL)
             return
@@ -73,6 +74,7 @@ class searchLocationVC: UIViewController, UITextFieldDelegate {
         geocoder.geocodeAddressString(location) { (placemarks, error) in
             guard (error == nil) else {
                 MasterNetwork.sharedInstance().alertError(self, error: self.appDelegate.errorMessages.locationError)
+                self.activityIndicator.stopAnimating()
                 return
             }
             var location: CLLocation?

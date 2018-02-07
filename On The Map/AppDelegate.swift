@@ -10,6 +10,7 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    
 
     var window: UIWindow?
     
@@ -26,9 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var mediauRL: String = ""
     var latitude: Double = 0.00
     var longitude: Double = 0.00
-    
-    var studentLocations = [UsersData]()
-    
+        
     let errorMessages = ErrorMessages()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -36,33 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 }
-extension AppDelegate {
-    
-    func buildParseURL(_ parameters: [String:AnyObject], withPathExtension: String? = nil) -> URL {
-        
-        var components = URLComponents()
-        components.scheme = Constants.Parse.APIScheme
-        components.host = Constants.Parse.APIHost
-        components.path = Constants.Parse.APIPath + (withPathExtension ?? "")
-        
-        for (key, value) in parameters {
-            let queryItem = URLQueryItem(name: key, value: "\(value)")
-            components.queryItems!.append(queryItem)
-        }
-        
-        return components.url!
-    }
-    
-    func buildUdacityURL(_ withPathExtension: String? = nil) -> URL {
-        
-        var components = URLComponents()
-        components.scheme = Constants.Udacity.APIScheme
-        components.host = Constants.Udacity.APIHost
-        components.path = Constants.Udacity.APIPath + (withPathExtension ?? "")
-        
-        return components.url!
-    }
-}
+
 
 
 

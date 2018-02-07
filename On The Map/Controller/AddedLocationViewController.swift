@@ -24,11 +24,6 @@ class addedLocationViewController: UIViewController, MKMapViewDelegate {
         self.mapView.delegate = self
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        
-    }
-    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         self.getAnnotation()
@@ -44,11 +39,11 @@ class addedLocationViewController: UIViewController, MKMapViewDelegate {
         MasterNetwork.sharedInstance().updateExistingStudentInfo(student: userData!, location: appDelegate.mapString) { (success, error) in
             performUIUpdatesOnMain {
                 if success {
-                    MasterNetwork.sharedInstance().segueToTabVC(self)
+                    self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
                 } else {
                     MasterNetwork.sharedInstance().postStudentLocation(student: userData!, location: self.appDelegate.mapString, completionHandlerForStudentPost: {success, error in
                         if success {
-                            MasterNetwork.sharedInstance().segueToTabVC(self)
+                            self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
                         } else {
                             MasterNetwork.sharedInstance().alertError(self, error: self.appDelegate.errorMessages.postError)
                         }

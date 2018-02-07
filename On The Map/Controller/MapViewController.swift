@@ -32,11 +32,11 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     
     @IBAction func logoutPressed(_ sender: Any) {
         MasterNetwork.sharedInstance().logoutSession(controller: self)
-        MasterNetwork.sharedInstance().segueToLoginVC(self)
+        self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func addPressed(_ sender: Any) {
-        MasterNetwork.sharedInstance().segueToSearchVC(self)
+        self.performSegue(withIdentifier: "toAddLocation", sender: nil)
     }
     
     @IBAction func refreshButton(_ sender: Any) {

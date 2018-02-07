@@ -54,19 +54,13 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ygm-6p-ORU">
-                                <rect key="frame" x="158" y="474" width="58" height="33"/>
+                                <rect key="frame" x="129" y="534" width="117" height="33"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Sign up"/>
                                 <connections>
                                     <action selector="signUpPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dlJ-DO-UjT"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Don't have an account? " textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="qUJ-n3-llP">
-                                <rect key="frame" x="91" y="448.5" width="192" height="36.5"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="752" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hm0-jD-bmg">
                                 <rect key="frame" x="53" y="409.5" width="268" height="36"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -78,24 +72,30 @@
                                     <action selector="loginPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Jxo-26-DCd"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Don't have an account? " textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="qUJ-n3-llP">
+                                <rect key="frame" x="53" y="476" width="270" height="52"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="qUJ-n3-llP" firstAttribute="top" secondItem="Hm0-jD-bmg" secondAttribute="bottom" constant="3.5" id="07Q-67-KMg"/>
+                            <constraint firstItem="qUJ-n3-llP" firstAttribute="top" secondItem="Hm0-jD-bmg" secondAttribute="bottom" constant="30" id="07Q-67-KMg"/>
                             <constraint firstItem="5sG-ag-f65" firstAttribute="top" secondItem="6yw-KO-Qaw" secondAttribute="bottom" constant="62" id="5wn-PT-odl"/>
-                            <constraint firstItem="QNE-cI-akF" firstAttribute="top" secondItem="qUJ-n3-llP" secondAttribute="bottom" constant="182" id="7Rs-K6-Lj9"/>
+                            <constraint firstItem="QNE-cI-akF" firstAttribute="top" secondItem="qUJ-n3-llP" secondAttribute="bottom" constant="139" id="7Rs-K6-Lj9"/>
                             <constraint firstItem="5sG-ag-f65" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="37" id="7Zs-YR-bIg"/>
-                            <constraint firstItem="QNE-cI-akF" firstAttribute="top" secondItem="Ygm-6p-ORU" secondAttribute="bottom" constant="160" id="BZd-zh-ayc"/>
+                            <constraint firstItem="QNE-cI-akF" firstAttribute="top" secondItem="Ygm-6p-ORU" secondAttribute="bottom" constant="100" id="BZd-zh-ayc"/>
                             <constraint firstAttribute="trailingMargin" secondItem="QIZ-Kg-pOh" secondAttribute="trailing" constant="36" id="ECf-ua-UKC"/>
-                            <constraint firstItem="qUJ-n3-llP" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="75" id="FZF-32-HCa"/>
+                            <constraint firstItem="qUJ-n3-llP" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="37" id="FZF-32-HCa"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Hm0-jD-bmg" secondAttribute="trailing" constant="38" id="N73-4e-pZs"/>
                             <constraint firstItem="QIZ-Kg-pOh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="38" id="cgw-UG-RtI"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Ygm-6p-ORU" secondAttribute="trailing" constant="143" id="cwa-Eo-5cV"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Ygm-6p-ORU" secondAttribute="trailing" constant="113" id="cwa-Eo-5cV"/>
                             <constraint firstAttribute="trailingMargin" secondItem="6yw-KO-Qaw" secondAttribute="trailing" constant="113" id="fGZ-ay-e3D"/>
                             <constraint firstItem="Hm0-jD-bmg" firstAttribute="top" secondItem="QIZ-Kg-pOh" secondAttribute="bottom" constant="38" id="fKO-g6-nvC"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="qUJ-n3-llP" secondAttribute="trailing" constant="76" id="fbt-Td-Ms1"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="qUJ-n3-llP" secondAttribute="trailing" constant="36" id="fbt-Td-Ms1"/>
                             <constraint firstItem="6yw-KO-Qaw" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="113" id="fcS-aN-lNh"/>
-                            <constraint firstItem="Ygm-6p-ORU" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="142" id="mNE-F2-FfP"/>
+                            <constraint firstItem="Ygm-6p-ORU" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="113" id="mNE-F2-FfP"/>
                             <constraint firstItem="QIZ-Kg-pOh" firstAttribute="top" secondItem="5sG-ag-f65" secondAttribute="bottom" constant="35" id="pO6-Nb-mc4"/>
                             <constraint firstItem="Hm0-jD-bmg" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="37" id="rbL-7P-vh6"/>
                             <constraint firstAttribute="trailingMargin" secondItem="5sG-ag-f65" secondAttribute="trailing" constant="37" id="vH6-zK-uxh"/>
@@ -221,6 +221,7 @@
                     <connections>
                         <outlet property="tableNavBar" destination="EDu-Qg-iXG" id="uO1-Pi-apF"/>
                         <outlet property="tableView" destination="tEf-wl-NzI" id="Qel-13-KUy"/>
+                        <segue destination="OcL-aW-bwn" kind="presentation" identifier="toLocation" id="v7G-U2-EWw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4E9-Pe-8a3" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -378,6 +379,7 @@
                     <tabBarItem key="tabBarItem" title="" image="icon_mapview-deselected" id="Fan-Qy-SI2"/>
                     <connections>
                         <outlet property="mapView" destination="8WX-Ch-2hM" id="QVS-6o-wCz"/>
+                        <segue destination="OcL-aW-bwn" kind="presentation" identifier="toAddLocation" id="GFv-rO-yS6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pgd-gu-9dC" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -442,7 +444,6 @@
                                 </state>
                                 <connections>
                                     <action selector="locationButton:" destination="OcL-aW-bwn" eventType="touchUpInside" id="0Yh-fu-MAT"/>
-                                    <segue destination="BOX-ra-Rqe" kind="presentation" identifier="showLocation" id="jbY-9o-hi4"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YSK-Y0-wid">
@@ -477,6 +478,7 @@
                         <outlet property="locationButton" destination="bGb-WI-dXt" id="adj-iI-HWb"/>
                         <outlet property="locationTextField" destination="IwF-aE-YHt" id="NzR-Yd-8Ai"/>
                         <outlet property="urlTextField" destination="XtD-n9-oAI" id="nh6-qr-v5i"/>
+                        <segue destination="BOX-ra-Rqe" kind="presentation" identifier="showLocation" id="3lA-M1-Fy5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Bj-Fr-hFW" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -511,5 +513,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="jEb-Sc-q4W"/>
+        <segue reference="v7G-U2-EWw"/>
     </inferredMetricsTieBreakers>
 </document>
