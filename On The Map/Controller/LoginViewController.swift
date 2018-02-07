@@ -70,7 +70,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate, UITextViewDele
                                             self.performSegue(withIdentifier: "loginToMap", sender: nil)
                                         } else {
                                             self.activityIndicator.stopAnimating()
-                                            MasterNetwork.sharedInstance().alertError(self, error: self.appDelegate.errorMessages.LoginSelfError)
+                                            self.performSegue(withIdentifier: "loginToMap", sender: nil)
                                         }
                                     }
                                 }
