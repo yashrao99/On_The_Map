@@ -83,6 +83,7 @@ class MasterNetwork: NSObject {
             self.appDelegate.userID = userID
             self.appDelegate.sessionID = sessionID
             self.appDelegate.uniqueKey = userID
+            print(userID)
             
             completionHandlerForAuth(true, nil, nil)
         }
@@ -143,6 +144,8 @@ class MasterNetwork: NSObject {
 
             self.appDelegate.firstName = firstName
             self.appDelegate.lastName = lastName
+            print(firstName)
+            print(lastName)
 
             
             completionHandlerForAuth(true, nil)
@@ -247,7 +250,7 @@ class MasterNetwork: NSObject {
                         
                         completionHandlerForUpdate(true, nil)
                     } else {
-                        
+                        print("As expected")
                         completionHandlerForUpdate(false, "No previous location found")
                         }
                     }
@@ -257,10 +260,8 @@ class MasterNetwork: NSObject {
     }
     
     
-    func postStudentLocation(student: UsersData, location: String, completionHandlerForStudentPost: @escaping (_ success: Bool, _ error: NSError?) -> Void) {
-        var parameters : [String:AnyObject] = [:]
-        let url = buildParseURL(parameters, withPathExtension: Constants.ParseURLKeys.StudentLocation)
-        var request = NSMutableURLRequest(url: url)
+    func postStudentLocation(student: UsersData, location: String, completionHandlerForStudentPost: @escaping (_ success: Bool,_ objectID: String?, _ error: NSError?) -> Void) {
+        var request = URLRequest(url: URL(string: "https://parse.udacity.com/parse/classes/StudentLocation")!)
         request.httpMethod = "POST"
         request.addValue(Constants.ParseParameterValues.application_id, forHTTPHeaderField: "X-Parse-Application-ID")
         request.addValue(Constants.ParseParameterValues.api_key, forHTTPHeaderField: "X-Parse-REST-API-Key")
@@ -272,7 +273,7 @@ class MasterNetwork: NSObject {
             func handleError( error: String) {
                 print(error)
                 let userInfo = [NSLocalizedDescriptionKey: error]
-                completionHandlerForStudentPost(false, NSError(domain: "postStudentLocation", code: 1, userInfo: userInfo))
+                completionHandlerForStudentPost(false, nil, NSError(domain: "postStudentLocation", code: 1, userInfo: userInfo))
             }
             
             guard (error == nil) else {
@@ -281,7 +282,8 @@ class MasterNetwork: NSObject {
             }
             
             guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode >= 200 && statusCode <= 299 else {
-                handleError(error: "Your request returned a status code other than 2xx!")
+                handleError(error: "Your request returned a status code other than 2xx! - POST")
+                completionHandlerForStudentPost(false, nil, nil)
                 return
             }
             
@@ -298,9 +300,10 @@ class MasterNetwork: NSObject {
                 return
             }
             
-            if let objectID = parsedResult["objectId"] {
-                self.appDelegate.objectID = objectID as! String
-                completionHandlerForStudentPost(true, nil)
+            if let objectID = parsedResult["objectId"] as? String {
+                self.appDelegate.objectID = objectID
+                print(objectID)
+                completionHandlerForStudentPost(true, objectID, nil)
             }
         }
         task.resume()
@@ -331,7 +334,8 @@ class MasterNetwork: NSObject {
             }
             
             guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode >= 200 && statusCode <= 299 else {
-                handleError(error: "Your request returned a status code other than 2xx!")
+                handleError(error: "Your request returned a status code other than 2xx! - PUT")
+                completionHandlerForPut(false, nil)
                 return
         }
             guard data != nil else {

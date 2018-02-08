@@ -65,13 +65,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate, UITextViewDele
                             if success {
                                 MasterNetwork.sharedInstance().getSingleUser(uniqueKey: self.appDelegate.userID!) { (success, error) in
                                     performUIUpdatesOnMain {
-                                        if success {
-                                            self.activityIndicator.stopAnimating()
-                                            self.performSegue(withIdentifier: "loginToMap", sender: nil)
-                                        } else {
-                                            self.activityIndicator.stopAnimating()
-                                            self.performSegue(withIdentifier: "loginToMap", sender: nil)
-                                        }
+                                        self.activityIndicator.stopAnimating()
+                                        self.performSegue(withIdentifier: "loginToMap", sender: nil)
                                     }
                                 }
                             } else {

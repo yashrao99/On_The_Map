@@ -34,20 +34,33 @@ class addedLocationViewController: UIViewController, MKMapViewDelegate {
     }
     @IBAction func submitButton(_ sender: Any) {
         
-        let userData = UsersData(dictionary: ["firstName" : appDelegate.firstName, "lastName" : appDelegate.lastName, "mediaURL": appDelegate.mediauRL, "latitude": appDelegate.latitude, "longitude": appDelegate.longitude, "objectId": appDelegate.objectID, "uniqueKey": appDelegate.uniqueKey])
+        var userData = UsersData(dictionary: ["firstName" : appDelegate.firstName, "lastName" : appDelegate.lastName, "mediaURL": appDelegate.mediauRL, "latitude": appDelegate.latitude, "longitude": appDelegate.longitude, "objectId": appDelegate.objectID, "uniqueKey": appDelegate.uniqueKey])
         
-        MasterNetwork.sharedInstance().updateExistingStudentInfo(student: userData!, location: appDelegate.mapString) { (success, error) in
-            performUIUpdatesOnMain {
+        print(userData)
+        
+        if userData?.objectID != "" {
+            MasterNetwork.sharedInstance().updateExistingStudentInfo(student: userData!, location: appDelegate.mapString) { (success, error) in
+                performUIUpdatesOnMain {
+                    if success {
+                        self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
+                    }
+                }
+            }
+        } else if userData?.objectID == "" {
+            MasterNetwork.sharedInstance().postStudentLocation(student: userData!, location: appDelegate.mapString) { (success, objectID, error) in
                 if success {
-                    self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
-                } else {
-                    MasterNetwork.sharedInstance().postStudentLocation(student: userData!, location: self.appDelegate.mapString, completionHandlerForStudentPost: {success, error in
-                        if success {
-                            self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
-                        } else {
-                            MasterNetwork.sharedInstance().alertError(self, error: self.appDelegate.errorMessages.postError)
+                    userData?.objectID = objectID!
+                    MasterNetwork.sharedInstance().updateExistingStudentInfo(student: userData!, location: self.appDelegate.mapString) { (success, error) in
+                        performUIUpdatesOnMain {
+                            if success {
+                                self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
+                            } else {
+                                MasterNetwork.sharedInstance().alertError(self, error: self.appDelegate.errorMessages.postError)
+                            }
                         }
-                    })
+                    }
+                } else {
+                   MasterNetwork.sharedInstance().alertError(self, error: self.appDelegate.errorMessages.postError)
                 }
             }
         }
